@@ -4,7 +4,7 @@ import CustomButton from "@/components/CustomButton";
 import CustomInput from "@/components/Textfield";
 import ApiClient from "@/services/api";
 import { SnifferModel } from "@/types";
-import { SEARCH, TOKEN_SEARCH_PLACEHOLDER, TOKEN_SEARCH_SLOGAN } from "@/utils/constants";
+import { ENTER, ENTER_KEY_CODE, SEARCH, TOKEN_SEARCH_PLACEHOLDER, TOKEN_SEARCH_SLOGAN } from "@/utils/constants";
 import React, { useState } from "react";
 
 interface Props {
@@ -21,25 +21,28 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
         setAddress(e.target.value);
     };
 
+    const handleKeyDownSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === ENTER || e.keyCode === ENTER_KEY_CODE) {
+            onSubmit();
+        }
+    };
+
     const onSubmit = () => {
         if (!address) {
             setAddressError(true);
             return;
         }
         setLoading(true);
-        setTimeout(() => {
-            ApiClient.sniffToken({ address })
-                .then((resp) => {
-                    console.log(resp);
-                    onSearch(resp);
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-                .finally(() => {
-                    setLoading(false);
-                });
-        }, 1000);
+        ApiClient.sniffToken({ address })
+            .then((resp) => {
+                onSearch(resp);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     };
 
     return (
@@ -50,6 +53,7 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
                     <CustomInput
                         value={address}
                         onChange={handleAddressChange}
+                        onKeyDown={handleKeyDownSubmit}
                         placeholder={TOKEN_SEARCH_PLACEHOLDER}
                         className="w-full h-full"
                         color={addressError ? "danger" : "neutral"}
