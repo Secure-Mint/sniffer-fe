@@ -1,8 +1,8 @@
 import * as React from "react";
 import Input, { InputProps } from "@mui/joy/Input";
 
-const CustomInput: React.FC<InputProps> = ({ placeholder, value, onChange, className }) => {
-    return <Input placeholder={placeholder} value={value} onChange={onChange} className={className} />;
+const CustomInput: React.FC<InputProps> = (props) => {
+    return <Input {...props} />;
 };
 
 export default CustomInput;

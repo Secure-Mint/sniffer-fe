@@ -1,7 +1,8 @@
+import { SnifferModel } from "@/types";
 import axios, { AxiosError, AxiosInstance } from "axios";
 
 class ApiClient {
-    private static baseUrl = process.env.NEXT_API_URL;
+    private static baseUrl = process.env.NEXT_PUBLIC_API_URL;
     private static axiosInstance: AxiosInstance = (() => {
         const instance = axios.create({ baseURL: ApiClient.baseUrl });
         instance.interceptors.response.use(
@@ -23,9 +24,10 @@ class ApiClient {
         }
     }
 
-    public static async sniffToken({ address }: { address: string }): Promise<{ data: { impersonated: boolean } }> {
+    public static async sniffToken({ address }: { address: string }): Promise<SnifferModel> {
         try {
-            return (await this.axiosInstance.get(`/admin/social/post/count?address=${address}`)).data;
+            console.log(ApiClient.baseUrl);
+            return (await this.axiosInstance.get(`/v1/sniffer?address=${address}`)).data.data;
         } catch (error) {
             throw new Error((error as Error).message);
         }
