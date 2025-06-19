@@ -3,7 +3,7 @@ export interface SnifferModel {
     symbol: string;
     address: string;
     dailyVolume: number;
-    impersonated: boolean;
+    impersonator: boolean;
     freezeAuthority: boolean;
     mintAuthority: boolean;
     tags: string[];

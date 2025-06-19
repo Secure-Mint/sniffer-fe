@@ -14,11 +14,11 @@ interface Props {
 const TokenSearch: React.FC<Props> = ({ onSearch }) => {
     const [address, setAddress] = useState("");
     const [loading, setLoading] = useState(false);
-    const [addressError, setAddressError] = useState(false);
+    const [error, setError] = useState("");
 
     const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (address && addressError) setAddressError(false);
         setAddress(e.target.value);
+        if (e.target.value && error) setError("");
     };
 
     const handleKeyDownSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -29,7 +29,7 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
 
     const onSubmit = () => {
         if (!address) {
-            setAddressError(true);
+            setError("Address cannot be empty...");
             return;
         }
         setLoading(true);
@@ -38,7 +38,7 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
                 onSearch(resp);
             })
             .catch((err) => {
-                console.log(err);
+                setError(err.message);
             })
             .finally(() => {
                 setLoading(false);
@@ -56,9 +56,9 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
                         onKeyDown={handleKeyDownSubmit}
                         placeholder={TOKEN_SEARCH_PLACEHOLDER}
                         className="w-full h-full"
-                        color={addressError ? "danger" : "neutral"}
+                        color={error ? "danger" : "neutral"}
                     />
-                    {addressError && <span className="text-sm text-red-600 pl-1">Address cannot be empty...</span>}
+                    {error && <span className="text-sm text-red-600 pl-1">{error}</span>}
                 </div>
                 <CustomButton
                     label={SEARCH}

@@ -28,27 +28,27 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
                 </p>
             </Alert>
 
-            <Alert variant="soft" color="neutral">
+            <Alert variant="soft" color={sniffer?.dailyVolume ? "neutral" : "danger"}>
                 <p>
                     Daily Volume: <span className="normal-case font-bold">{sniffer?.dailyVolume || "0"}</span>
                 </p>
             </Alert>
 
-            <Alert variant="soft" color={sniffer?.impersonated ? "danger" : "success"}>
-                <p>Impersonated: {sniffer?.impersonated ? "true" : "false"}</p>
+            <Alert variant="soft" color={sniffer?.impersonator ? "danger" : "success"}>
+                <p>Impersonated: {sniffer?.impersonator ? "true" : "false"}</p>
             </Alert>
 
             <Alert variant="soft" color={sniffer?.mintAuthority ? "warning" : "success"}>
-                <p>Mint Authority: {sniffer?.mintAuthority ? "true" : "false"}</p>
+                <p>Mint Authority Enabled: {sniffer?.mintAuthority ? "true" : "false"}</p>
             </Alert>
 
             <Alert variant="soft" color={sniffer?.freezeAuthority ? "warning" : "success"}>
-                <p>Freeze Authority: {sniffer?.freezeAuthority ? "true" : "false"}</p>
+                <p>Freeze Authority Enalbed: {sniffer?.freezeAuthority ? "true" : "false"}</p>
             </Alert>
 
             <Alert variant="soft" color={"success"}>
-                <p>
-                    Verification Sources:{" "}
+                <p className="flex flex-row gap-1">
+                    Verified Sources:{" "}
                     {(sniffer?.tags || []).map((x) => (
                         <Chip key={x} variant="solid" color="success">
                             {x}
