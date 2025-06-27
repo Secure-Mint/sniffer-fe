@@ -6,9 +6,9 @@ import { SnifferModel } from "@/types";
 import { useState } from "react";
 
 const Home = () => {
-    const [sniffer, setSniffer] = useState<SnifferModel | undefined>(undefined);
+    const [sniffer, setSniffer] = useState<SnifferModel | null>(null);
 
-    const onSearch = (data: SnifferModel) => {
+    const onSearch = (data: SnifferModel | null) => {
         setSniffer(data);
     };
 

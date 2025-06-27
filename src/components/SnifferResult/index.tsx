@@ -12,19 +12,9 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
         <div className="w-3xl flex flex-col gap-2">
             <Alert variant="soft" color="neutral">
                 <p>
-                    Name: <span className="normal-case font-bold">{sniffer?.name || ""}</span>
-                </p>
-            </Alert>
-
-            <Alert variant="soft" color="neutral">
-                <p>
-                    Symbol: <span className="normal-case font-bold">{sniffer?.symbol || ""}</span>
-                </p>
-            </Alert>
-
-            <Alert variant="soft" color="neutral">
-                <p>
-                    Address: <span className="normal-case font-bold">{sniffer?.address || ""}</span>
+                    <span>Token: </span>
+                    <span className="normal-case font-bold">{sniffer?.address || ""}</span>{" "}
+                    <span className="normal-case font-bold">({sniffer?.symbol || ""})</span>
                 </p>
             </Alert>
 
@@ -34,26 +24,53 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
                 </p>
             </Alert>
 
+            <Alert variant="soft" color={sniffer?.dailyVolume ? "neutral" : "danger"}>
+                <p>
+                    Total Supply: <span className="normal-case font-bold">{sniffer?.totalSupply || "0"}</span>
+                </p>
+            </Alert>
+
+            <Alert variant="soft" color={sniffer?.dailyVolume ? "neutral" : "danger"}>
+                <p>
+                    Circulating Supply: <span className="normal-case font-bold">{sniffer?.totalSupply || "0"}</span>
+                </p>
+            </Alert>
+
+            <Alert variant="soft" color={sniffer?.top50HolderSupplyPercentage < 50 ? "neutral" : "danger"}>
+                <p>
+                    Top 50 Holders holding percentage of total supply:{" "}
+                    <span className="normal-case font-bold">{sniffer?.top50HolderSupplyPercentage || "0"}</span>
+                </p>
+            </Alert>
+
+            <Alert variant="soft" color={sniffer?.top10HolderSupplyPercentage < 50 ? "neutral" : "danger"}>
+                <p>
+                    Top 10 Holders holding percentage of total supply:{" "}
+                    <span className="normal-case font-bold">{sniffer?.top10HolderSupplyPercentage || "0"}</span>
+                </p>
+            </Alert>
+
             <Alert variant="soft" color={sniffer?.impersonator ? "danger" : "success"}>
                 <p>Impersonated: {sniffer?.impersonator ? "true" : "false"}</p>
             </Alert>
 
             <Alert variant="soft" color={sniffer?.mintAuthority ? "warning" : "success"}>
-                <p>Mint Authority Enabled: {sniffer?.mintAuthority ? "true" : "false"}</p>
+                <p>Mint Authority Dsiabled: {sniffer?.mintAuthority ? "false" : "true"}</p>
             </Alert>
 
             <Alert variant="soft" color={sniffer?.freezeAuthority ? "warning" : "success"}>
-                <p>Freeze Authority Enalbed: {sniffer?.freezeAuthority ? "true" : "false"}</p>
+                <p>Freeze Authority Dsiabled: {sniffer?.freezeAuthority ? "false" : "true"}</p>
             </Alert>
 
             <Alert variant="soft" color={"success"}>
                 <p className="flex flex-row gap-1">
-                    Verified Sources:{" "}
-                    {(sniffer?.tags || []).map((x) => (
-                        <Chip key={x} variant="solid" color="success">
-                            {x}
-                        </Chip>
-                    ))}
+                    Verifications:{" "}
+                    {sniffer &&
+                        (sniffer?.tags).map((x) => (
+                            <Chip key={x} variant="solid" color="success">
+                                {x}
+                            </Chip>
+                        ))}
                 </p>
             </Alert>
         </div>

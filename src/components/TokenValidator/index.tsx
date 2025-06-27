@@ -4,11 +4,11 @@ import CustomButton from "@/components/CustomButton";
 import CustomInput from "@/components/Textfield";
 import ApiClient from "@/services/api";
 import { SnifferModel } from "@/types";
-import { ENTER, ENTER_KEY_CODE, SEARCH, TOKEN_SEARCH_PLACEHOLDER, TOKEN_SEARCH_SLOGAN } from "@/utils/constants";
+import { ENTER, ENTER_KEY_CODE, SEARCH, TOKEN_SEARCH_PLACEHOLDER, TOKEN_SEARCH_SLOGAN } from "@/utils";
 import React, { useState } from "react";
 
 interface Props {
-    onSearch: (data: SnifferModel) => void;
+    onSearch: (data: SnifferModel | null) => void;
 }
 
 const TokenSearch: React.FC<Props> = ({ onSearch }) => {
@@ -38,7 +38,9 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
                 onSearch(resp);
             })
             .catch((err) => {
+                console.log(err);
                 setError(err.message);
+                onSearch(null);
             })
             .finally(() => {
                 setLoading(false);
