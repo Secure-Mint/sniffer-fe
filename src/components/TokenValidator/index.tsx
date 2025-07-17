@@ -4,7 +4,7 @@ import CustomButton from "@/components/CustomButton";
 import CustomInput from "@/components/Textfield";
 import ApiClient from "@/services/api";
 import { SnifferModel } from "@/types";
-import { ENTER, ENTER_KEY_CODE, SEARCH, TOKEN_SEARCH_PLACEHOLDER, TOKEN_SEARCH_SLOGAN } from "@/utils";
+import { ENTER, ENTER_KEY_CODE, SEARCH, TOKEN_SEARCH_PLACEHOLDER } from "@/utils";
 import React, { useState } from "react";
 
 interface Props {
@@ -49,7 +49,6 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
 
     return (
         <div className="w-3xl flex flex-col justify-center items-center gap-10">
-            <h3 className="text-3xl">{TOKEN_SEARCH_SLOGAN}</h3>
             <div className="w-full flex flex-row justify-between items-center gap-5">
                 <div className="w-5/6 h-12">
                     <CustomInput

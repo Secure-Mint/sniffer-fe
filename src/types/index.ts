@@ -12,4 +12,6 @@ export interface SnifferModel {
     freezeAuthority: boolean;
     mintAuthority: boolean;
     tags: string[];
+    score: number;
+    totalScore: number;
 }
