@@ -24,7 +24,7 @@ body {
 }
 
 .app-layout .app-topbar {
-    @apply w-full m-0 p-0 h-32;
+    @apply w-full m-0 p-0 h-28;
 }
 
 .app-layout .app-content {

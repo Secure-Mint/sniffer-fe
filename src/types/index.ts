@@ -5,8 +5,8 @@ export interface SnifferModel {
     dailyVolume: number;
     totalSupply: number;
     circulatingSupply: number;
+    marketCap: number;
     totalHolders: number;
-    top50HolderSupplyPercentage: number;
     top10HolderSupplyPercentage: number;
     impersonator: boolean;
     freezeAuthority: boolean;

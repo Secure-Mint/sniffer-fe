@@ -26,20 +26,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
 
             <Alert variant="soft" color={sniffer?.dailyVolume ? "neutral" : "danger"}>
                 <p>
-                    Total Supply: <span className="normal-case font-bold">{sniffer?.totalSupply || "0"}</span>
-                </p>
-            </Alert>
-
-            <Alert variant="soft" color={sniffer?.dailyVolume ? "neutral" : "danger"}>
-                <p>
-                    Circulating Supply: <span className="normal-case font-bold">{sniffer?.totalSupply || "0"}</span>
-                </p>
-            </Alert>
-
-            <Alert variant="soft" color={sniffer?.top50HolderSupplyPercentage < 50 ? "neutral" : "danger"}>
-                <p>
-                    Top 50 Holders holding percentage of total supply:{" "}
-                    <span className="normal-case font-bold">{sniffer?.top50HolderSupplyPercentage || "0"}</span>
+                    Market Cap: <span className="normal-case font-bold">{sniffer?.marketCap || "0"}</span>
                 </p>
             </Alert>
 

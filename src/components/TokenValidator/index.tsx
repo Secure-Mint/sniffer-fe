@@ -48,8 +48,8 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
     };
 
     return (
-        <div className="w-3xl flex flex-col justify-center items-center gap-5">
-            <h3 className="text-2xl">{TOKEN_SEARCH_SLOGAN}</h3>
+        <div className="w-3xl flex flex-col justify-center items-center gap-10">
+            <h3 className="text-3xl">{TOKEN_SEARCH_SLOGAN}</h3>
             <div className="w-full flex flex-row justify-between items-center gap-5">
                 <div className="w-5/6 h-12">
                     <CustomInput
