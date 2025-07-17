@@ -11,7 +11,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
     return (
         <div className="w-3xl flex flex-col gap-2">
             <h2 className="text-2xl mb-3">
-                Audit Score: {sniffer.score || 0} / {sniffer.totalScore || 100}
+                Sniffer Score: {sniffer.score || 0} / {sniffer.totalScore || 100}
             </h2>
             <Alert variant="soft" color="neutral">
                 <p>
