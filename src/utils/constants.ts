@@ -1,5 +1,7 @@
+export const APP_NAME = "Snifra";
+export const APP_TAGLINE = "Token validation and fraud detection";
 export const SEARCH = "search";
-export const TOKEN_SEARCH_SLOGAN = "Validate Solana tokens by token address!";
+export const TOKEN_SEARCH_SLOGAN = "Validate token!";
 export const TOKEN_SEARCH_PLACEHOLDER = "Token address!";
 export const ENTER = "Enter";
 export const ENTER_KEY_CODE = 13;

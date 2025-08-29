@@ -15,7 +15,7 @@ const Home = () => {
 
     return (
         <div className="home w-full h-full flex flex-col justify-start items-center gap-7">
-            <h3 className="text-3xl">{TOKEN_SEARCH_SLOGAN}</h3>
+            <h3 className="w-3xl text-3xl text-left">{TOKEN_SEARCH_SLOGAN}</h3>
             <TokenValidator onSearch={onSearch} />
             <p className="w-3xl text-sm">{SNIFFER_DISCLAIMER}</p>
             {sniffer && <SnifferResult sniffer={sniffer} />}

@@ -53,7 +53,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
             </Alert>
 
             <Alert variant="soft" color={"success"}>
-                <p className="flex flex-row gap-1">
+                <div className="flex flex-row gap-1">
                     Verifications:{" "}
                     {sniffer &&
                         (sniffer?.tags).map((x) => (
@@ -61,7 +61,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
                                 {x}
                             </Chip>
                         ))}
-                </p>
+                </div>
             </Alert>
         </div>
     );
