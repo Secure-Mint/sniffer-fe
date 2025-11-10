@@ -10,8 +10,8 @@ interface Props {
 
 const SnifferResult: React.FC<Props> = ({ sniffer }) => {
   return (
-    <div className='flex flex-row justify-between gap-10 mt-10'>
-      <div className='w-96 p-8 border rounded-3xl border-gray-200'>
+    <div className='flex flex-row items-start justify-between gap-10 mt-10'>
+      <div className='w-96 flex flex-col p-8 border rounded-3xl border-gray-200'>
         <h2 className='text-3xl text-center mb-3 font-bold'>Token Overview</h2>
 
         <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
@@ -24,6 +24,11 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
           <span className='normal-case font-bold truncate w-40 text-ellipsis overflow-hidden whitespace-nowrap [direction:rtl] [text-align:left]'>
             {sniffer?.address || ""}
           </span>{" "}
+        </p>
+
+        <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
+          <span>Total Holders: </span>
+          <span className='normal-case font-bold'>{formatNumber(sniffer?.totalHolders) || "0"}</span>
         </p>
 
         <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
