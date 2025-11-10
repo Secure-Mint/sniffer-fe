@@ -2,53 +2,53 @@
 
 /* === LIGHT MODE === */
 :root {
-    --color-bg: #ffffff;
-    --color-bg-secondary: #f8f9fa;
-    --color-text: #171717;
-    --color-text-secondary: #171717;
-    --color-accent: #0057ff;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-text: #171717;
+  --color-text-secondary: #171717;
+  --color-accent: #0057ff;
 
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 /* === DARK MODE === */
 .dark {
-    --color-bg: #111111;
-    --color-bg-secondary: #1e1e1e;
-    --color-text: #ffffff;
-    --color-text-secondary: #ffffff;
-    --color-accent: #4f8cff;
+  --color-bg: #111111;
+  --color-bg-secondary: #1e1e1e;
+  --color-text: #ffffff;
+  --color-text-secondary: #ffffff;
+  --color-accent: #4f8cff;
 }
 
 @layer base {
-    body {
-        background-color: var(--color-bg);
-        color: var(--color-text);
-        transition: background-color 0.3s, color 0.3s;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color 0.3s, color 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-    .bg-secondary {
-        background-color: var(--color-bg-secondary);
-    }
+  .bg-secondary {
+    background-color: var(--color-bg-secondary);
+  }
 }
 
 * {
-    transition: background-color 0.3s ease, color 0.3s ease;
-    transition: color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease, color 0.3s ease;
 }
 
 .app-layout {
-    @apply w-full m-0 p-0;
-    height: 100vh;
+  @apply w-full m-0 p-0;
+  height: 100vh;
 }
 
 .app-layout .app-topbar {
-    @apply w-full m-0 p-0 h-28;
+  @apply w-full m-0 p-0 h-28;
 }
 
 .app-layout .app-content {
-    @apply w-full m-0 p-0 pt-10;
-    height: calc(100vh - 128px);
+  @apply w-full m-0 p-0;
+  height: calc(100vh - 128px);
 }
