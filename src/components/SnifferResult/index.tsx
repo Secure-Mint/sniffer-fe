@@ -35,6 +35,20 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
           <span>Market Cap: </span>
           <span className='normal-case font-bold'>{formatUSD(sniffer?.marketCap) || "0"}</span>
         </p>
+
+        <p className='flex flex-row justify-between py-3 border-b  border-b-gray-200'>
+          <span>Mint Authority: </span>
+          <span className='normal-case font-bold truncate w-40 text-ellipsis overflow-hidden whitespace-nowrap [direction:rtl] [text-align:left]'>
+            {sniffer.mintAuthority}
+          </span>
+        </p>
+
+        <p className='flex flex-row justify-between py-3 border-b  border-b-gray-200'>
+          <span>Freeze Authority: </span>
+          <span className='normal-case font-bold truncate w-40 text-ellipsis overflow-hidden whitespace-nowrap [direction:rtl] [text-align:left]'>
+            {sniffer.mintAuthority}
+          </span>
+        </p>
       </div>
 
       <div className='w-3xl flex flex-col gap-2 p-8 border rounded-3xl border-gray-200'>
@@ -67,12 +81,12 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
           <p>Impersonated: {sniffer?.impersonator ? "true" : "false"}</p>
         </Alert>
 
-        <Alert variant='soft' color={sniffer?.mintAuthority ? "warning" : "success"}>
-          <p>Mint Authority Dsiabled: {sniffer?.mintAuthority ? "false" : "true"}</p>
+        <Alert variant='soft' color={sniffer?.mintAuthorityAvailable ? "warning" : "success"}>
+          <p>Mint Authority Dsiabled: {sniffer?.mintAuthorityAvailable ? "false" : "true"}</p>
         </Alert>
 
-        <Alert variant='soft' color={sniffer?.freezeAuthority ? "warning" : "success"}>
-          <p>Freeze Authority Dsiabled: {sniffer?.freezeAuthority ? "false" : "true"}</p>
+        <Alert variant='soft' color={sniffer?.freezeAuthorityAvailable ? "warning" : "success"}>
+          <p>Freeze Authority Dsiabled: {sniffer?.freezeAuthorityAvailable ? "false" : "true"}</p>
         </Alert>
 
         <Alert variant='soft' color={"success"}>

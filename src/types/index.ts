@@ -11,8 +11,10 @@ export interface SnifferModel {
   top20HolderSupplyPercentage: number;
   top40HolderSupplyPercentage: number;
   impersonator: boolean;
-  freezeAuthority: boolean;
-  mintAuthority: boolean;
+  freezeAuthority: string;
+  freezeAuthorityAvailable: boolean;
+  mintAuthority: string;
+  mintAuthorityAvailable: boolean;
   tags: string[];
   score: number;
   totalScore: number;
