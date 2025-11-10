@@ -1,7 +1,7 @@
 "use client";
 
 import { SnifferModel } from "@/types";
-import { formatUSD } from "@/utils";
+import { formatNumber, formatUSD } from "@/utils";
 import { Alert, Chip } from "@mui/joy";
 
 interface Props {
@@ -14,29 +14,39 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
       <div className='w-96 p-8 border rounded-3xl border-gray-200'>
         <h2 className='text-3xl text-center mb-3 font-bold'>Token Overview</h2>
 
-        <p className='flex flex-row justify-between py-3 border-b  border-b-gray-200'>
+        <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
           <span>Symbol: </span>
           <span className='normal-case font-bold'>{sniffer?.symbol || ""}</span>{" "}
         </p>
 
-        <p className='flex flex-row justify-between py-3 border-b  border-b-gray-200'>
+        <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
           <span>Address: </span>
           <span className='normal-case font-bold truncate w-40 text-ellipsis overflow-hidden whitespace-nowrap [direction:rtl] [text-align:left]'>
             {sniffer?.address || ""}
           </span>{" "}
         </p>
 
-        <p className='flex flex-row justify-between py-3 border-b  border-b-gray-200'>
-          <span>Daily Volume: </span>
-          <span className='normal-case font-bold'>{sniffer?.dailyVolume || "0"}</span>
+        <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
+          <span>Total Supply: </span>
+          <span className='normal-case font-bold'>{formatNumber(sniffer?.totalSupply) || "0"}</span>
         </p>
 
-        <p className='flex flex-row justify-between py-3 border-b  border-b-gray-200'>
+        <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
+          <span>Circulating Supply: </span>
+          <span className='normal-case font-bold'>{formatNumber(sniffer?.circulatingSupply) || "0"}</span>
+        </p>
+
+        <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
+          <span>Daily Volume: </span>
+          <span className='normal-case font-bold'>{formatNumber(sniffer?.dailyVolume) || "0"}</span>
+        </p>
+
+        <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
           <span>Market Cap: </span>
           <span className='normal-case font-bold'>{formatUSD(sniffer?.marketCap) || "0"}</span>
         </p>
 
-        <p className='flex flex-row justify-between py-3 border-b  border-b-gray-200'>
+        <p className='flex text-sm flex-row justify-between py-3 border-b  border-b-gray-200'>
           <span>Mint Authority: </span>
           <span className='normal-case font-bold truncate w-40 text-ellipsis overflow-hidden whitespace-nowrap [direction:rtl] [text-align:left]'>
             {sniffer.mintAuthority}
