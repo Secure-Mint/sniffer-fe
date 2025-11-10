@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const Home = () => {
   const [sniffer, setSniffer] = useState<SnifferModel | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const onSearch = (data: SnifferModel | null) => {
     setSniffer(data);
