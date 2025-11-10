@@ -15,6 +15,7 @@ export interface SnifferModel {
   freezeAuthorityAvailable: boolean;
   mintAuthority: string;
   mintAuthorityAvailable: boolean;
+  immutableMetadata: boolean;
   tags: string[];
   score: number;
   totalScore: number;
