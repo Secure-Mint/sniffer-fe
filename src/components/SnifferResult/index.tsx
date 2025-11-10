@@ -1,6 +1,7 @@
 "use client";
 
 import { SnifferModel } from "@/types";
+import { formatUSD } from "@/utils";
 import { Alert, Chip } from "@mui/joy";
 
 interface Props {
@@ -29,7 +30,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
 
       <Alert variant='soft' color={sniffer?.dailyVolume ? "neutral" : "danger"}>
         <p>
-          Market Cap USD: <span className='normal-case font-bold'>{sniffer?.marketCap || "0"}</span>
+          Market Cap USD: <span className='normal-case font-bold'>{formatUSD(sniffer?.marketCap) || "0"}</span>
         </p>
       </Alert>
 
