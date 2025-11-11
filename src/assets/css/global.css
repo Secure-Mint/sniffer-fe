@@ -45,15 +45,10 @@
 }
 
 .app-layout .app-topbar {
-  @apply w-full m-0 p-0 h-28;
+  @apply w-full m-0 p-0 h-24;
 }
 
 .app-layout .app-content {
   @apply w-full m-0 p-0;
-  height: calc(100vh - 128px);
-  padding-bottom: 80px;
-}
-
-.app-layout .app-footer {
-  @apply w-full h-20 m-0 p-0 absolute bottom-0 left-0 right-0 border-t border-gray-200;
+  height: calc(100vh - 96);
 }

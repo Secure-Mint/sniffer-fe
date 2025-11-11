@@ -11,7 +11,9 @@ export interface SnifferModel {
   totalHolders: number;
   top10HolderSupplyPercentage: number;
   top20HolderSupplyPercentage: number;
+  top30HolderSupplyPercentage: number;
   top40HolderSupplyPercentage: number;
+  top50HolderSupplyPercentage: number;
   impersonator: boolean;
   freezeAuthority: string;
   freezeAuthorityAvailable: boolean;

@@ -33,9 +33,6 @@ export default function RootLayout({
             <Topbar />
           </div>
           <div className='app-content'>{children}</div>
-          <div className='app-footer'>
-            <Footer />
-          </div>
         </div>
       </body>
     </html>
