@@ -1,3 +1,5 @@
+import { RISK_STATUS } from "@/utils";
+
 export interface SnifferModel {
   name: string;
   symbol: string;
@@ -19,4 +21,5 @@ export interface SnifferModel {
   tags: string[];
   score: number;
   totalScore: number;
+  risk: RISK_STATUS;
 }

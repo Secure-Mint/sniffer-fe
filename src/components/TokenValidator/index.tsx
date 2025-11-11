@@ -62,7 +62,7 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
           />
           {error && <span className='text-sm text-red-600 pl-1'>{error}</span>}
         </div>
-        <CustomButton label={SEARCH} onClick={onSubmit} size='lg' className='w-28 h-12 capitalize text-2xl' loading={loading} />
+        <CustomButton label={SEARCH} onClick={onSubmit} size='lg' className='w-28 h-12 capitalize' loading={loading} />
       </div>
     </div>
   );
