@@ -23,7 +23,6 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
           <h2 className='text-3xl text-center mb-3 font-bold'>Token Overview</h2>
           <TokenOverviewBox label='Symbol:' value={sniffer.symbol} />
           <TokenOverviewBox label='Address:' value={sniffer.address} />
-          <TokenOverviewBox label='Total Holders:' value={formatNumber(sniffer?.totalHolders)} />
           <TokenOverviewBox label='Total Supply:' value={formatNumber(sniffer?.totalSupply)} />
           <TokenOverviewBox label='Circulating Supply:' value={formatNumber(sniffer?.circulatingSupply)} />
           <TokenOverviewBox label='Daily Volume:' value={formatNumber(sniffer?.dailyVolume)} />
@@ -39,33 +38,9 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
           </h2>
 
           <TokenResultBox
-            danger={sniffer?.top10HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
-            label='Top 10 Holders holding percentage of total supply:'
-            value={sniffer?.top10HolderSupplyPercentage}
-          />
-
-          <TokenResultBox
-            danger={sniffer?.top20HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
-            label='Top 20 Holders holding percentage of total supply:'
-            value={sniffer?.top20HolderSupplyPercentage}
-          />
-
-          <TokenResultBox
-            danger={sniffer?.top30HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
-            label='Top 30 Holders holding percentage of total supply:'
-            value={sniffer?.top30HolderSupplyPercentage}
-          />
-
-          <TokenResultBox
-            danger={sniffer?.top40HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
-            label='Top 40 Holders holding percentage of total supply:'
-            value={sniffer?.top40HolderSupplyPercentage}
-          />
-
-          <TokenResultBox
-            danger={sniffer?.top50HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
-            label='Top 50 Holders holding percentage of total supply:'
-            value={sniffer?.top50HolderSupplyPercentage}
+            danger={sniffer?.totalHolders < TOTAL_SUPPLY_THRESHOLD ? true : false}
+            label='Total Holders:'
+            value={sniffer?.totalHolders}
           />
 
           <TokenResultBox danger={sniffer?.impersonator} label='Impersonated:' value={sniffer?.impersonator ? "true" : "false"} />
@@ -86,6 +61,36 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
             danger={sniffer?.immutableMetadata ? false : true}
             label='Immutabela Metadata:'
             value={sniffer?.immutableMetadata ? "true" : "false"}
+          />
+
+          <TokenResultBox
+            danger={sniffer?.top10HolderSupplyPercentage && sniffer?.top10HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
+            label='Top 10 Holders holding percentage of total supply:'
+            value={sniffer?.top10HolderSupplyPercentage}
+          />
+
+          <TokenResultBox
+            danger={sniffer?.top20HolderSupplyPercentage && sniffer?.top20HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
+            label='Top 20 Holders holding percentage of total supply:'
+            value={sniffer?.top20HolderSupplyPercentage}
+          />
+
+          <TokenResultBox
+            danger={sniffer?.top30HolderSupplyPercentage && sniffer?.top30HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
+            label='Top 30 Holders holding percentage of total supply:'
+            value={sniffer?.top30HolderSupplyPercentage}
+          />
+
+          <TokenResultBox
+            danger={sniffer?.top40HolderSupplyPercentage && sniffer?.top40HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
+            label='Top 40 Holders holding percentage of total supply:'
+            value={sniffer?.top40HolderSupplyPercentage}
+          />
+
+          <TokenResultBox
+            danger={sniffer?.top50HolderSupplyPercentage && sniffer?.top50HolderSupplyPercentage < TOTAL_SUPPLY_THRESHOLD ? false : true}
+            label='Top 50 Holders holding percentage of total supply:'
+            value={sniffer?.top50HolderSupplyPercentage}
           />
 
           <Alert variant='soft' color={"success"}>
