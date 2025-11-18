@@ -1,10 +1,9 @@
 "use client";
 
-import ResultIcon from "@/components/SnifferResult/ResultIcon";
 import TokenOverviewBox from "@/components/SnifferResult/TokenOverviewBox";
 import TokenResultBox from "@/components/SnifferResult/TokenResultBox";
 import { SnifferModel } from "@/types";
-import { formatNumber, formatUSD, SNIFFER_DISCLAIMER, TOTAL_SUPPLY_THRESHOLD } from "@/utils";
+import { formatNumber, formatUSD, getTokenAgeInfo, SNIFFER_DISCLAIMER, TOTAL_SUPPLY_THRESHOLD } from "@/utils";
 import { Alert, Chip } from "@mui/joy";
 
 interface Props {
@@ -27,6 +26,15 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
           <TokenOverviewBox label='Circulating Supply:' value={formatNumber(sniffer?.circulatingSupply)} />
           <TokenOverviewBox label='Daily Volume:' value={formatNumber(sniffer?.dailyVolume)} />
           <TokenOverviewBox label='Market Cap:' value={formatUSD(sniffer?.marketCap)} />
+          <TokenOverviewBox label='Age in days:' value={`${getTokenAgeInfo(sniffer?.firstOnchainActivity!).ageDays.toString()}`} />
+          <div className='w-full flex flex-row gap-1 flex-wrap py-3'>
+            {sniffer &&
+              (sniffer?.tags).map((x) => (
+                <Chip key={x} variant='solid' color='neutral'>
+                  {x}
+                </Chip>
+              ))}
+          </div>
         </div>
 
         <div className='w-3xl flex flex-col gap-2 p-8 border rounded-3xl border-gray-200 bg-gray-50'>
@@ -37,13 +45,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
             <span>{sniffer?.risk}</span>
           </h2>
 
-          <TokenResultBox
-            danger={sniffer?.totalHolders < TOTAL_SUPPLY_THRESHOLD ? true : false}
-            label='Total Holders:'
-            value={sniffer?.totalHolders}
-          />
-
-          <TokenResultBox danger={sniffer?.impersonator} label='Impersonated:' value={sniffer?.impersonator ? "true" : "false"} />
+          <TokenResultBox danger={sniffer?.impersonator} label='Impersonator:' value={sniffer?.impersonator ? "true" : "false"} />
 
           <TokenResultBox
             danger={sniffer?.mintAuthorityAvailable}
@@ -61,6 +63,12 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
             danger={sniffer?.immutableMetadata ? false : true}
             label='Immutabela Metadata:'
             value={sniffer?.immutableMetadata ? "true" : "false"}
+          />
+
+          <TokenResultBox
+            danger={sniffer?.totalHolders < TOTAL_SUPPLY_THRESHOLD ? true : false}
+            label='Total Holders:'
+            value={sniffer?.totalHolders}
           />
 
           <TokenResultBox
@@ -93,17 +101,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
             value={sniffer?.top50HolderSupplyPercentage}
           />
 
-          <Alert variant='soft' color={"success"}>
-            <div className='flex flex-row gap-1'>
-              Verifications:{" "}
-              {sniffer &&
-                (sniffer?.tags).map((x) => (
-                  <Chip key={x} variant='solid' color='success'>
-                    {x}
-                  </Chip>
-                ))}
-            </div>
-          </Alert>
+          <TokenResultBox danger={true} label='Contract Auditted:' value={"false"} />
         </div>
       </div>
     </div>

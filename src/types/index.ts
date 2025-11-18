@@ -24,4 +24,5 @@ export interface SnifferModel {
   score: number;
   totalScore: number;
   risk: RISK_STATUS;
+  firstOnchainActivity: string;
 }
