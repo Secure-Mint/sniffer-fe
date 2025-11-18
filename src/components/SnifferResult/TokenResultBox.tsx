@@ -9,10 +9,17 @@ interface Props {
 
 const TokenResultBox: React.FC<Props> = ({ danger, label, value }) => {
   return (
-    <Alert variant='soft' color={!danger ? "success" : "danger"} startDecorator={<ResultIcon danger={danger} />}>
-      <p className='flex flex-row justify-start items-center'>
+    <Alert
+      variant='outlined'
+      color={!danger ? "success" : "danger"}
+      startDecorator={<ResultIcon danger={danger} />}
+      sx={{
+        borderWidth: "2px"
+      }}
+    >
+      <p className='flex flex-row justify-start items-center font-bold gap-1'>
         {label}
-        <span className='normal-case font-bold'> {value}</span>
+        <span className='font-bold uppercase'> {value}</span>
       </p>
     </Alert>
   );
