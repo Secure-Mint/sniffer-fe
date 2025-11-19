@@ -4,7 +4,7 @@ export const getTokenAgeInfo = (dateStr: string) => {
   const date = new Date(dateStr);
 
   return {
-    readable: format(date, "PPP"),
+    readable: format(date, "dd MMM, yyyy"),
     ageDays: differenceInDays(new Date(), date)
   };
 };
