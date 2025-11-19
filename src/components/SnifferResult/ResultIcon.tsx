@@ -4,7 +4,9 @@ import { ShieldExclamationIcon, ShieldCheckIcon } from "@heroicons/react/24/soli
 
 const ResultIcon: React.FC<{ danger: boolean }> = ({ danger }) => {
   return (
-    <>{danger ? <ShieldExclamationIcon className='size-5 text-red-700' /> : <ShieldCheckIcon className='size-5 text-green-700 mr-2' />}</>
+    <>
+      {danger ? <ShieldExclamationIcon className='size-5 text-red-700 mr-2' /> : <ShieldCheckIcon className='size-5 text-green-700 mr-2' />}
+    </>
   );
 };
 
