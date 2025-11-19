@@ -55,39 +55,20 @@
   padding-bottom: 50px;
 }
 
-/* --- Loader Animations Start --- */
-@keyframes sweep {
+.hexagon {
+  clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+  transform: rotate(90deg);
+}
+
+/* Animate the hexagon stroke like a rotating line */
+@keyframes hex-sweep {
   0% {
-    transform: rotate(0deg);
+    stroke-dashoffset: 300;
   }
   100% {
-    transform: rotate(360deg);
+    stroke-dashoffset: -300;
   }
 }
-
-.animate-sweep {
-  animation: sweep 1.2s cubic-bezier(0.6, 0.2, 0.4, 1) infinite;
+.animate-hex-sweep {
+  animation: hex-sweep 2.5s linear infinite;
 }
-
-@keyframes spin-reverse-slower {
-  0% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes opacityPulse {
-  0%,
-  100% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-.animate-opacity-pulse {
-  animation: opacityPulse 1.5s ease-in-out infinite;
-}
-/* --- Loader Animations End --- */
