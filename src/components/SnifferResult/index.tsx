@@ -31,7 +31,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
           <TokenOverviewBox label='Circulating Supply:' value={formatNumber(sniffer?.circulatingSupply)} />
           <TokenOverviewBox label='Daily Volume:' value={formatNumber(sniffer?.dailyVolume)} />
           <TokenOverviewBox label='Market Cap:' value={formatUSD(sniffer?.marketCap)} />
-          <TokenOverviewBox label='Age in days:' value={`${getTokenAgeInfo(sniffer?.firstOnchainActivity!).ageDays.toString()}`} />
+          <TokenOverviewBox label='Created:' value={`${getTokenAgeInfo(sniffer?.firstOnchainActivity!).readable.toString()}`} />
           <div className='w-full flex flex-row gap-1 flex-wrap py-3'>
             {sniffer &&
               (sniffer?.tags).map((x) => (
