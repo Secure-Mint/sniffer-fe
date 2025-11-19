@@ -26,7 +26,8 @@
     background-color: var(--color-bg);
     color: var(--color-text);
     transition: background-color 0.3s, color 0.3s;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
   }
 
   .bg-secondary {
@@ -52,4 +53,40 @@
   @apply w-full m-0 p-0;
   height: calc(100vh - 96);
   padding-bottom: 50px;
+}
+
+/* --- Loader Animations --- */
+@keyframes sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-sweep {
+  animation: sweep 1.2s cubic-bezier(0.6, 0.2, 0.4, 1) infinite;
+}
+
+@keyframes spin-reverse-slower {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes opacityPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-opacity-pulse {
+  animation: opacityPulse 1.5s ease-in-out infinite;
 }

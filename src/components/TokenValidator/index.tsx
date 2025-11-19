@@ -9,11 +9,12 @@ import React, { useState } from "react";
 
 interface Props {
   onSearch: (data: SnifferModel | null) => void;
+  loading: boolean;
+  onLoading: (loading: boolean) => void;
 }
 
-const TokenSearch: React.FC<Props> = ({ onSearch }) => {
+const TokenSearch: React.FC<Props> = ({ onSearch, loading, onLoading }) => {
   const [address, setAddress] = useState("");
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +34,7 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
       return;
     }
     setError("");
-    setLoading(true);
+    onLoading(true);
     ApiClient.sniffToken({ address })
       .then((resp) => {
         onSearch(resp);
@@ -44,7 +45,7 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
         setError(err.message);
       })
       .finally(() => {
-        setLoading(false);
+        onLoading(false);
       });
   };
 
@@ -62,7 +63,7 @@ const TokenSearch: React.FC<Props> = ({ onSearch }) => {
           />
           {error && <span className='text-sm text-red-600 pl-1'>{error}</span>}
         </div>
-        <CustomButton label={SEARCH} onClick={onSubmit} size='lg' className='w-28 h-12 capitalize' loading={loading} />
+        <CustomButton label={SEARCH} onClick={onSubmit} size='lg' className='w-28 h-12 capitalize' disabled={loading} />
       </div>
     </div>
   );

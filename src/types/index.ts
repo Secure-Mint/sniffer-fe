@@ -3,6 +3,7 @@ import { RISK_STATUS } from "@/utils";
 export interface SnifferModel {
   name: string;
   symbol: string;
+  imageUrl: string | null;
   address: string;
   dailyVolume: number;
   totalSupply: number;
