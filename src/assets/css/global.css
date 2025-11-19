@@ -55,7 +55,7 @@
   padding-bottom: 50px;
 }
 
-/* --- Loader Animations --- */
+/* --- Loader Animations Start --- */
 @keyframes sweep {
   0% {
     transform: rotate(0deg);
@@ -90,3 +90,4 @@
 .animate-opacity-pulse {
   animation: opacityPulse 1.5s ease-in-out infinite;
 }
+/* --- Loader Animations End --- */
