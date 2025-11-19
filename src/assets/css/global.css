@@ -72,3 +72,17 @@
 .animate-hex-sweep {
   animation: hex-sweep 2.5s linear infinite;
 }
+
+/* Pulse text */
+@keyframes opacityPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-opacity-pulse {
+  animation: opacityPulse 1.5s ease-in-out infinite;
+}
