@@ -14,7 +14,10 @@ export const SNIFFER_DISCLAIMER = `The audit score reflects how well a token ali
   Always conduct your own research before making any decisions.`;
 
 export enum RISK_STATUS {
+  EXTREME_RISK = "EXTREME_RISK",
+  VERY_HIGH_RISK = "VERY_HIGH_RISK",
   HIGH_RISK = "HIGH_RISK",
-  MEDIUM_RISK = "MEDIUM_RISK",
-  LOW_RISK = "LOW_RISK"
+  MODERATE_RISK = "MODERATE_RISK",
+  LOW_RISK = "LOW_RISK",
+  VERY_LOW_RISK = "VERY_LOW_RISK"
 }

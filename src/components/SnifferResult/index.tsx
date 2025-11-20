@@ -3,7 +3,7 @@
 import TokenOverviewBox from "@/components/SnifferResult/TokenOverviewBox";
 import TokenResultBox from "@/components/SnifferResult/TokenResultBox";
 import { SnifferModel } from "@/types";
-import { formatNumber, formatUSD, getTokenAgeInfo, SNIFFER_DISCLAIMER, TOTAL_SUPPLY_THRESHOLD } from "@/utils";
+import { formatNumber, formatUSD, getRiskStatusLabel, getTokenAgeInfo, SNIFFER_DISCLAIMER, TOTAL_SUPPLY_THRESHOLD } from "@/utils";
 import { Chip } from "@mui/joy";
 import Image from "next/image";
 import SolanaIcon from "../../assets/images/solana.png";
@@ -47,7 +47,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
             <span>
               Score: {sniffer.score} / {sniffer.totalScore}
             </span>
-            <span>{sniffer?.risk}</span>
+            <span>{getRiskStatusLabel(sniffer.risk)}</span>
           </h2>
 
           <TokenResultBox danger={sniffer?.impersonator} label='Impersonator:' value={sniffer?.impersonator ? "true" : "false"} />
