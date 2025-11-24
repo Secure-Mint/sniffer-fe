@@ -6,7 +6,7 @@ import { SnifferModel } from "@/types";
 import { formatNumber, formatUSD, getRiskStatusLabel, getTokenAgeInfo, SNIFFER_DISCLAIMER, TOTAL_SUPPLY_THRESHOLD } from "@/utils";
 import { Chip } from "@mui/joy";
 import Image from "next/image";
-import SolanaIcon from "../../assets/images/solana.png";
+import SnifraIcon from "../../assets/images/snifra-icon-black.png";
 
 interface Props {
   sniffer: SnifferModel;
@@ -22,7 +22,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
       <div className='flex flex-row items-start justify-between gap-10 mt-5'>
         <div className='w-96 flex flex-col p-8 border rounded-3xl border-gray-200 bg-gray-50'>
           <h2 className='flex flex-row justify-center gap-3 items-center text-3xl text-center mb-3 font-bold'>
-            {/* <Image src={SolanaIcon} alt={sniffer.symbol} width={45} height={45} className='rounded-full border border-gray-300' />  */}
+            <Image src={SnifraIcon} alt={sniffer.symbol} width={45} height={45} className='rounded-full' />
             Token Overview
           </h2>
           <TokenOverviewBox label='Symbol:' value={sniffer.symbol} />
