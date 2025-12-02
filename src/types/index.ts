@@ -1,11 +1,16 @@
 import { RISK_STATUS } from "@/utils";
 
+export interface DetailedAnalysis {
+  detail: string;
+  risk: RISK_STATUS;
+}
+
 export interface SnifferModel {
   name: string;
   symbol: string;
   imageUrl: string | null;
   address: string;
-  dailyVolume: number;
+  volume24h: number;
   totalSupply: number;
   circulatingSupply: number;
   marketCap: number;
@@ -16,6 +21,7 @@ export interface SnifferModel {
   top40HolderSupplyPercentage: number;
   top50HolderSupplyPercentage: number;
   impersonator: boolean;
+  isStableCoin: boolean;
   freezeAuthority: string;
   freezeAuthorityAvailable: boolean;
   mintAuthority: string;
@@ -26,4 +32,5 @@ export interface SnifferModel {
   totalScore: number;
   risk: RISK_STATUS;
   firstOnchainActivity: string;
+  detailedAnalysis: DetailedAnalysis[];
 }
