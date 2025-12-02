@@ -7,6 +7,7 @@ import { formatNumber, formatUSD, getRiskStatusLabel, getTokenAgeInfo, SNIFFER_D
 import { Chip } from "@mui/joy";
 import Image from "next/image";
 import SnifraIcon from "../../assets/images/snifra-icon-black.png";
+import RiskStatusLegend from "@/components/SnifferResult/RiskStatusLegend";
 
 interface Props {
   sniffer: SnifferModel;
@@ -15,10 +16,9 @@ interface Props {
 const SnifferResult: React.FC<Props> = ({ sniffer }) => {
   return (
     <div className='w-full flex flex-col justify-center items-center'>
-      <p className='w-5/6 text-xs'>
-        <span className='font-bold'>Disclaimer: </span>
-        <span>{SNIFFER_DISCLAIMER}</span>
-      </p>
+      <div className='w-4/6 my-5'>
+        <RiskStatusLegend />
+      </div>
       <div className='w-5/6 flex flex-row items-start justify-between gap-10 mt-5'>
         <div className='w-96 flex flex-col p-8 border rounded-3xl border-gray-200 bg-gray-50'>
           <h2 className='flex flex-row justify-center gap-3 items-center text-3xl text-center mb-3 font-bold'>
@@ -33,11 +33,11 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
           <TokenOverviewBox label='24 Hour Volume:' value={formatNumber(sniffer?.volume24h)} />
           <TokenOverviewBox label='Market Cap:' value={formatUSD(sniffer?.marketCap)} />
           <TokenOverviewBox label='Created:' value={`${getTokenAgeInfo(sniffer?.firstOnchainActivity!).readable.toString()}`} />
-          <div className='w-full flex flex-row gap-1 flex-wrap py-3'>
+          <div className='w-full flex flex-row gap-1 flex-wrap pt-5'>
             {sniffer &&
               (sniffer?.tags).map((x, i) => (
-                <Chip key={`${x}-${i}`} variant='solid' color='neutral'>
-                  {x}
+                <Chip key={`${x}-${i}`} variant='outlined' color='primary'>
+                  <span className='text-xs'>{x}</span>
                 </Chip>
               ))}
           </div>
@@ -48,13 +48,17 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
             <span>
               Score: {sniffer.score} / {sniffer.totalScore}
             </span>
-            <span>{getRiskStatusLabel(sniffer.risk)}</span>
+            <span>Evaluation: {getRiskStatusLabel(sniffer.risk)}</span>
           </h2>
 
           {sniffer.detailedAnalysis.length &&
             sniffer.detailedAnalysis.map((item, index) => <TokenResultBox key={index} label={item.detail} risk={item.risk} />)}
         </div>
       </div>
+      <p className='w-5/6 text-xs mt-10'>
+        <span className='font-bold'>Disclaimer: </span>
+        <span>{SNIFFER_DISCLAIMER}</span>
+      </p>
     </div>
   );
 };
