@@ -11,21 +11,21 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-risk-extreme: #dc2626; /* Equivalent to red-600 */
-  --color-risk-extreme-hover: #b91c1c; /* Equivalent to red-700 */
-  --color-risk-extreme-text: #fef2f2; /* Equivalent to red-50 for text on dark bg */
+  --color-risk-extreme: #b91c1c; /* red-700 */
+  --color-risk-extreme-hover: #991b1b; /* red-800 */
+  --color-risk-extreme-text: #f7cfcf; /* red-50 */
 
-  --color-risk-very-high: #ea580c; /* Equivalent to orange-600 */
-  --color-risk-very-high-hover: #c2410c; /* Equivalent to orange-700 */
-  --color-risk-very-high-text: #fff7ed; /* Equivalent to orange-50 */
+  --color-risk-very-high: #ef4444; /* red-500 */
+  --color-risk-very-high-hover: #dc2626; /* red-600 */
+  --color-risk-very-high-text: #f9e6e6; /* red-50 */
 
-  --color-risk-high: #f59e0b; /* Equivalent to amber-500 */
-  --color-risk-high-hover: #d97706; /* Equivalent to amber-600 */
-  --color-risk-high-text: #fffdf5; /* Equivalent to amber-50 */
+  --color-risk-high: #ec4899; /* Equivalent to pink-500 */
+  --color-risk-high-hover: #db2777; /* Equivalent to pink-600 */
+  --color-risk-high-text: #fdf2f8; /* Equivalent to pink-50 */
 
-  --color-risk-moderate: #84cc16; /* Equivalent to lime-500 */
-  --color-risk-moderate-hover: #65a30d; /* Equivalent to lime-600 */
-  --color-risk-moderate-text: #f7fee7; /* Equivalent to lime-50 */
+  --color-risk-moderate: #eab308; /* Darker yellow, similar to yellow-600 */
+  --color-risk-moderate-hover: #ca8a04; /* Even darker yellow, similar to yellow-700 */
+  --color-risk-moderate-text: #fef3c7; /* Light yellow for text, similar to yellow-100 */
 
   --color-risk-low: #22c55e; /* Equivalent to green-500 */
   --color-risk-low-hover: #16a34a; /* Equivalent to green-600 */
