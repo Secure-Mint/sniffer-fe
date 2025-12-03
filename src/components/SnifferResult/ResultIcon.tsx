@@ -1,23 +1,13 @@
 "use client";
 
 import { RISK_STATUS } from "@/utils";
-import {
-  ShieldExclamationIcon, // Used for high-risk
-  ShieldCheckIcon, // Used for low-risk
-  InformationCircleIcon, // Used for moderate risk
-  ExclamationTriangleIcon // Used for very high/extreme risk
-} from "@heroicons/react/24/solid";
-// Note: You might need to adjust the imports based on which icons you want to use.
+import { ShieldExclamationIcon, ShieldCheckIcon, InformationCircleIcon, ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 
 interface Props {
   risk: RISK_STATUS;
-  // Allows for passing custom classes (like size or margin) from the parent component
   className?: string;
 }
 
-/**
- * Maps a RISK_STATUS to the appropriate Icon component and Tailwind color class.
- */
 const getIconAndClasses = (risk: RISK_STATUS) => {
   switch (risk) {
     case RISK_STATUS.EXTREME_RISK:
@@ -42,22 +32,27 @@ const getIconAndClasses = (risk: RISK_STATUS) => {
         colorClass: "text-risk-low"
       };
     case RISK_STATUS.VERY_LOW_RISK:
-    default:
       return {
         Icon: ShieldCheckIcon,
         colorClass: "text-risk-very-low"
+      };
+    case RISK_STATUS.INFO:
+      return {
+        Icon: InformationCircleIcon,
+        colorClass: "text-risk-info"
+      };
+    default:
+      return {
+        Icon: InformationCircleIcon,
+        colorClass: "text-risk-info"
       };
   }
 };
 
 const ResultIcon: React.FC<Props> = ({ risk, className = "" }) => {
-  // Get the dynamic icon and classes
   const { Icon, colorClass } = getIconAndClasses(risk);
 
-  return (
-    // Combine the dynamic color, static size, and any custom classes from the parent
-    <Icon className={`size-5 mr-2 ${colorClass} ${className}`} />
-  );
+  return <Icon className={`size-5 mr-2 ${colorClass} ${className}`} />;
 };
 
 export default ResultIcon;

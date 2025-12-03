@@ -16,10 +16,11 @@ interface Props {
 const SnifferResult: React.FC<Props> = ({ sniffer }) => {
   return (
     <div className='w-full flex flex-col justify-center items-center'>
-      <div className='w-4/6 my-5'>
-        <RiskStatusLegend />
-      </div>
-      <div className='w-5/6 flex flex-row items-start justify-between gap-10 mt-5'>
+      <p className='w-5/6 text-xs mb-3'>
+        <span className='font-bold'>Disclaimer: </span>
+        <span>{SNIFFER_DISCLAIMER}</span>
+      </p>
+      <div className='w-full flex flex-row items-start justify-between gap-10 mt-5 px-10'>
         <div className='w-96 flex flex-col p-8 border rounded-3xl border-gray-200 bg-gray-50'>
           <h2 className='flex flex-row justify-center gap-3 items-center text-3xl text-center mb-3 font-bold'>
             <Image src={SnifraIcon} alt={sniffer.symbol} width={45} height={45} className='rounded-full' />
@@ -54,11 +55,12 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
           {sniffer.detailedAnalysis.length &&
             sniffer.detailedAnalysis.map((item, index) => <TokenResultBox key={index} label={item.detail} risk={item.risk} />)}
         </div>
+
+        <div className='w-48 py-1 flex flex-col justify-center items-center'>
+          <h2 className='text-xl mb-3 font-bold'>Risk Palette</h2>
+          <RiskStatusLegend />
+        </div>
       </div>
-      <p className='w-5/6 text-xs mt-10'>
-        <span className='font-bold'>Disclaimer: </span>
-        <span>{SNIFFER_DISCLAIMER}</span>
-      </p>
     </div>
   );
 };
