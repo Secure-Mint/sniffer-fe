@@ -23,7 +23,7 @@ const SnifferResult: React.FC<Props> = ({ sniffer }) => {
       <div className='w-full flex flex-row items-start justify-between gap-10 mt-5 px-10'>
         <div className='w-96 flex flex-col p-8 border rounded-3xl border-gray-200 bg-gray-50'>
           <h2 className='flex flex-row justify-center gap-3 items-center text-3xl text-center mb-3 font-bold'>
-            <Image src={SnifraIcon} alt={sniffer.symbol} width={45} height={45} className='rounded-full' />
+            <Image src={SnifraIcon} alt={sniffer.symbol} width={45} height={45} className='rounded-full' priority />
             Token Overview
           </h2>
           <TokenOverviewBox label='Name:' value={sniffer.name} />
